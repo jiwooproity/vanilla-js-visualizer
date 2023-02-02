@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Visualizer</title>
+  </head>
+
+  <style>
+    body {
+      margin: 0px;
+    }
+
+    .container {
+      width: 100%;
+      height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0);
+    }
+
+    #canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    #audio {
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      width: calc(100% - 20px);
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <canvas id="canvas"></canvas>
+      <audio id="audio"></audio>
+    </div>
+  </body>
+
+  <script type="text/javascript" src="./audio_visualizer.js"></script>
+</html>
