@@ -1,5 +1,8 @@
 const draw = () => {
-  const musicFile = "./rollin.flac";
+  const musicArray = ["./rollin.flac", "./Questions.mp3"];
+
+  const getMusic = musicArray[Math.floor(Math.random() * 2)];
+  const musicFile = getMusic;
   const audio = document.getElementById("audio");
 
   audio.src = musicFile;
@@ -17,7 +20,9 @@ const draw = () => {
   src.connect(analyser);
   analyser.connect(context.destination);
 
-  analyser.fftSize = 256;
+  // fftSize : 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768
+  // 사이즈가 클 수록 세밀하지만 오래 걸리고, 작을 수록 빨라진다.
+  analyser.fftSize = 512;
 
   const bufferLength = analyser.frequencyBinCount;
   const dataArray = new Uint8Array(bufferLength);
@@ -25,7 +30,7 @@ const draw = () => {
   const WIDTH = canvas.width;
   const HEIGHT = canvas.height;
 
-  let barWidth = (WIDTH / 260) * 1;
+  let barWidth = (WIDTH / bufferLength / 2) * 1;
   let barHeight = 0;
 
   let x = 0;
