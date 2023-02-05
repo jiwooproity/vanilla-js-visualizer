@@ -1,5 +1,5 @@
 const draw = () => {
-  const musicArray = ["./rollin.flac", "./Questions.mp3"];
+  const musicArray = ["../rollin.flac", "../Questions.mp3"];
 
   const getMusic = musicArray[Math.floor(Math.random() * 2)];
   const musicFile = getMusic;
